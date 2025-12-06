@@ -5,8 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03c1002a-1355-4492-9eaa-e037b59d8842" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/alarm_beep.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/AlertManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/cui/CUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/cui/CUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/cui/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/cui/Messages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/conroller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/conroller/TaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/conroller/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/conroller/TaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/TaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/TaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/TaskRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/run/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/run/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/run/RunApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/run/RunApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +35,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="36QtVYIDgEM5f9ieXBZPh6YhyyF" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -34,13 +49,19 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "E:/myProject/TaskManager/src/view"
+    "last_opened_file_path": "E:/myProject/TaskManager/src"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\myProject\TaskManager\src" />
+      <recent name="E:\myProject\TaskManager\src\audio" />
       <recent name="E:\myProject\TaskManager\src\view" />
       <recent name="E:\myProject\TaskManager" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\myProject\TaskManager" />
+      <recent name="E:\myProject\TaskManager\src" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

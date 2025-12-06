@@ -5,12 +5,17 @@ enum Messages {
     ENTER_TASK_NAME("Enter task name : "),
     ENTER_TASK_DESCRIPTION("Enter task description : "),
     ENTER_ALERT_DATE("Enter alert date of task example -> dd-mm-yyyy : "),
+    ENTER_ALERT_TIME("Enter alert time of task example -> HH:MM : "),
+    INVALID_PAST_TIME("You cannot set a time from the past..."),
+
 
     INVALID_ID("invalid ID..."),
     INVALID_NUMBER("Invalid number"),
     INVALID_PAST_DATE("You cannot set a date from the past..."),
     INVALID_DATE_FORMAT("A valid date format must be entered example (dd-mm-yyyy)..."),
+    INVALID_TIME_FORMAT("A valid time format must be entered example (HH:MM)..."),
     INVALID_DATE("Invalid date"),
+    INVALID_TIME("Invalid time"),
 
     MARK_AS_COMPLETE("Mark as complete..."),
     MARK_REMOVED("Remove mark as complete..."),

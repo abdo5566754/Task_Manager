@@ -1,6 +1,6 @@
 package conroller;
 
-import model.Status;
+import util.Status;
 import model.Task;
 
 import java.util.List;

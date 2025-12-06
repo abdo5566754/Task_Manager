@@ -2,11 +2,12 @@ package View.cui;
 
 import View.Actionable;
 import conroller.TaskController;
-import model.Status;
+import util.Status;
 import model.Task;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -25,6 +26,9 @@ public class CUI implements Actionable {
             case ERROR -> Messages.showErrorMessage(Messages.IMPORT_FAILED.getMessage());
         }
         taskController.setTaskId();
+    }
+
+    public CUI() {
     }
 
     // -> Create an AdditionTask class to check if tasks have been added
@@ -66,7 +70,7 @@ public class CUI implements Actionable {
                 try {
                     LocalDate alertDate = LocalDate.of(Integer.parseInt(parts[2]), Integer.parseInt(parts[1]), Integer.parseInt(parts[0]));
 
-                    if (alertDate.isAfter(LocalDate.now()))
+                    if (alertDate.isAfter(LocalDate.now()) || alertDate.isEqual(LocalDate.now()))
                         return alertDate;
                     else
                         Messages.showErrorMessage(Messages.INVALID_PAST_DATE.getMessage());
@@ -77,6 +81,32 @@ public class CUI implements Actionable {
                     Messages.showErrorMessage(Messages.INVALID_DATE.getMessage() + ", " + Messages.TRY_AGAIN.getMessage());
                 } catch (ArrayIndexOutOfBoundsException e) {
                     Messages.showErrorMessage(Messages.INVALID_DATE_FORMAT.getMessage() + ", " + Messages.TRY_AGAIN.getMessage());
+                }
+            }
+            return null;
+        }
+
+        static LocalTime addAlertTime(Scanner in) {
+            for (int k = 1; k <= 3; k++) {
+                Messages.showAlertMessage(Messages.ENTER_ALERT_TIME.getMessage());
+                String input = in.nextLine();
+
+                String[] parts = input.trim().split(":");
+
+                try {
+                    LocalTime alertTime = LocalTime.of(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
+
+                    if (alertTime.isAfter(LocalTime.now()))
+                        return alertTime;
+                    else
+                        Messages.showErrorMessage(Messages.INVALID_PAST_TIME.getMessage());
+
+                } catch (NumberFormatException e) {
+                    Messages.showErrorMessage(Messages.ONLY_NUMBER_CAN_BE_ENTERED.getMessage() + ", " + Messages.TRY_AGAIN.getMessage());
+                } catch (DateTimeException e) {
+                    Messages.showErrorMessage(Messages.INVALID_TIME.getMessage() + ", " + Messages.TRY_AGAIN.getMessage());
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    Messages.showErrorMessage(Messages.INVALID_TIME_FORMAT.getMessage() + ", " + Messages.TRY_AGAIN.getMessage());
                 }
             }
             return null;
@@ -139,7 +169,9 @@ public class CUI implements Actionable {
             if (taskDescription != null) {
                 LocalDate alertDate = AdditionTask.addAlertDate(in);
                 if (alertDate != null) {
-                    flag = taskController.add(new Task(taskName, taskDescription, alertDate.getDayOfMonth(), alertDate.getMonthValue(), alertDate.getYear()));
+                    LocalTime alertTime = AdditionTask.addAlertTime(in);
+                    if (alertTime != null)
+                        flag = taskController.add(new Task(taskName, taskDescription, alertDate.getDayOfMonth(), alertDate.getMonthValue(), alertDate.getYear(), alertTime.getHour(), alertTime.getMinute()));
                 }
             }
         }

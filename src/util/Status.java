@@ -1,6 +1,5 @@
-package model;
+package util;
 
 public enum Status {
-    EMPTY, NOT_FOUND, COMPLETE,DONE,UNDONE,ERROR;
-
+    EMPTY, NOT_FOUND, INVALID, COMPLETE, DONE, UNDONE, ERROR, YES, NO
 }

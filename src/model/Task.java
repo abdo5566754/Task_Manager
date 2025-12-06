@@ -3,6 +3,9 @@ package model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Formatter;
 import java.util.Objects;
 
 public final class Task implements Serializable {
@@ -12,7 +15,9 @@ public final class Task implements Serializable {
     private String description;
     private boolean complete;
     private final LocalDate dateOfCreate = LocalDate.now();
+    private final LocalTime timeOfCreate = LocalTime.now();
     private LocalDate alertDate;
+    private LocalTime alertTime;
 
     {
         id = ++nextId;
@@ -21,11 +26,14 @@ public final class Task implements Serializable {
 
     public Task() {
     }
-    public Task(String name, String description, int day, int month, int year) {
+
+    public Task(String name, String description, int day, int month, int year, int hour, int minute) {
         this.name = name;
         this.description = description;
         alertDate = LocalDate.of(year, month, day); // composition
+        alertTime = LocalTime.of(hour, minute, 0);
     }
+
     public void setComplete(boolean complete) {
         this.complete = complete;
     }
@@ -75,6 +83,26 @@ public final class Task implements Serializable {
         this.alertDate = LocalDate.of(year, month, day);
     }
 
+    public LocalTime getTimeOfCreate() {
+        return timeOfCreate;
+    }
+
+    public void setAlertDate(LocalDate alertDate) {
+        this.alertDate = alertDate;
+    }
+
+    public LocalTime getAlertTime() {
+        return alertTime;
+    }
+
+    public void setAlertTime(LocalTime alertTime) {
+        this.alertTime = alertTime;
+    }
+
+    public void setAlertTime(int year, int month, int day) {
+        this.alertDate = LocalDate.of(year, month, day);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -96,9 +124,11 @@ public final class Task implements Serializable {
                 + "%n|Task name        | %-39s|"
                 + "%n|Task description | %-39s|"
                 + "%n|Date of create   | %-39s|"
+                + "%n|Time of create   | %-39s|"
                 + "%n|Alert date       | %-39s|"
+                + "%n|Alert time       | %-39s|"
                 + "%n|Complete         | %-39s|"
-                + "%n", id, name, description, dateOfCreate, alertDate, (isComplete() ? "Yes" : "No")
+                + "%n", getId(), getName(), getDescription(), getDateOfCreate(), getTimeOfCreate().format(DateTimeFormatter.ofPattern("HH:mm")), getAlertDate(), getAlertTime().format(DateTimeFormatter.ofPattern("HH:mm")), (isComplete() ? "Yes" : "No")
         );
     }
 }

@@ -1,6 +1,7 @@
 package conroller;
 
-import model.Status;
+import model.AlertManager;
+import util.Status;
 import model.Task;
 import model.TaskManager;
 import model.TaskRepository;
@@ -12,9 +13,12 @@ import java.util.List;
 public class TaskController implements TaskService {
     private final TaskManager memoryTaskManager;
 
+
     public TaskController() {
         this.memoryTaskManager = new TaskManager();
+        new AlertManager(memoryTaskManager.getAllTasks()).start();
     }
+
 
     @Override
     public boolean add(Task t) {
@@ -80,7 +84,7 @@ public class TaskController implements TaskService {
         }
     }
 
-    public void setTaskId(){
+    public void setTaskId() {
         memoryTaskManager.checkLastId();
     }
 }
